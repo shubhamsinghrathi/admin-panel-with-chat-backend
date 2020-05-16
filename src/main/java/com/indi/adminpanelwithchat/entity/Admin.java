@@ -23,7 +23,7 @@ public class Admin {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="namae")
+	@Column(name="name")
 	private String name;
 	
 	@Column(name="type")
@@ -40,6 +40,6 @@ public class Admin {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-	private Date createdAt;
+	private Date createdAt = new Date();
 	
 }
