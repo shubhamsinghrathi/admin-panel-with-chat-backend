@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.indi.adminpanelwithchat.entity.Admin;
 import com.indi.adminpanelwithchat.model.GeneralResponse;
 import com.indi.adminpanelwithchat.model.SafeAdmin;
-import com.indi.adminpanelwithchat.model.Test;
 import com.indi.adminpanelwithchat.model.body.AdminBody;
 import com.indi.adminpanelwithchat.model.body.Login;
 import com.indi.adminpanelwithchat.service.AdminDetailService;
@@ -44,15 +43,6 @@ public class AdminController {
 
 	@Autowired
 	private JwtUtils jwtTokenUtil;
-
-	@GetMapping("test")
-	public ResponseEntity<GeneralResponse<Test>> testData() {
-		Test test = new Test(55, "Testing some data");
-		LinkedList<Test> testArr = new LinkedList<Test>();
-		testArr.add(test);
-		GeneralResponse<Test> gr = new GeneralResponse<Test>(200, "test message", test, testArr);
-		return new ResponseEntity<GeneralResponse<Test>>(gr, HttpStatus.OK);
-	}
 
 	@PostMapping("login")
 	public ResponseEntity<GeneralResponse<SafeAdmin>> login(@RequestBody Login loginBody) {
