@@ -16,13 +16,14 @@ public class AdminPanelWithChatApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(AdminPanelWithChatApplication.class, args);
 		context.getBean(BootstrapController.class).setup();
 	}
-	
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST","PUT", "DELETE", "OPTIONS", "HEAD");
+				registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS",
+						"HEAD");
 			}
 		};
 	}
