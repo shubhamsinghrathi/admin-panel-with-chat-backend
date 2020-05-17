@@ -10,6 +10,7 @@ create table if not exists `admins` (
     `password` varchar(250) not null,
     `created_at` timestamp default current_timestamp,
     `push_token` varchar(250),
+    CONSTRAINT `unique_username` UNIQUE (`username`),
     PRIMARY KEY (`id`)
 ) auto_increment = 1, engine = 'InnoDB';
 
@@ -18,6 +19,7 @@ create table if not exists `users` (
     `name` varchar(50) not null,
     `username` varchar(50) not null,
     `created_at` timestamp default current_timestamp,
+    CONSTRAINT `unique_username` UNIQUE (`username`),
     PRIMARY KEY (`id`)
 ) auto_increment = 1, engine = 'InnoDB';
 

@@ -24,4 +24,9 @@ public class GeneralResponse<T> {
 		this.message = message;
 		this.dataArr = dataArr;
 	}
+	
+	public GeneralResponse(int statusCode, String message) {
+		this.statusCode = statusCode;
+		this.message = message;
+	}
 }

@@ -21,6 +21,7 @@ public class BootstrapController {
 			Admin admin = new Admin();
 			admin.setName("Admin Rathi");
 			admin.setUsername("admin_rathi");
+			admin.setType(1);
 			String encodedPass = new BCryptPasswordEncoder().encode("12345678");
 			admin.setPassword(encodedPass);
 			adminService.addAdmin(admin);
