@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.indi.adminpanelwithchat.entity.Admin;
+import com.indi.adminpanelwithchat.exceptions.InvalidCredentials;
 import com.indi.adminpanelwithchat.model.GeneralResponse;
 import com.indi.adminpanelwithchat.model.SafeAdmin;
 import com.indi.adminpanelwithchat.model.body.AdminBody;
@@ -50,8 +51,9 @@ public class AdminController {
 			authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(loginBody.getUsername(), loginBody.getPassword()));
 		} catch (Exception exc) {
-			return new ResponseEntity<GeneralResponse<SafeAdmin>>(
-					new GeneralResponse<SafeAdmin>(401, "Invalid credentials provided"), HttpStatus.UNAUTHORIZED);
+//			return new ResponseEntity<GeneralResponse<SafeAdmin>>(
+//					new GeneralResponse<SafeAdmin>(401, "Invalid credentials provided"), HttpStatus.UNAUTHORIZED);
+			throw new InvalidCredentials("Invalid credentials were provided");
 		}
 
 		final UserDetails userDetails = adminDetailService.loadUserByUsername(loginBody.getUsername());
